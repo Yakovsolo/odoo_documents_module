@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="all_documents_template">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="text-center">
+                    <h2>All Documents</h2>
+                </div>
+                <table>
+                    <tr>
+                        <td>Date from</td>
+                        <td>:</td>
+                        <td>
+                            <t t-if="form_data.get('date_from')"> 
+                                <t t-esc="form_data['date_from']"/>
+                            </t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date to</td>
+                        <td>:</td>
+                        <td>
+                            <t t-if="form_data.get('date_to')"> 
+                                <t t-esc="form_data['date_to']"/>
+                            </t>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <table class="table table-borderd mt32">
+                    <thead>
+                        <tr>
+                            <th name="th_name" class="text-left">
+                                <span>Name</span>
+                            </th>
+                            <th name="th_description" class="text-left">
+                                <span>Description</span>
+                            </th>
+                            <th name="th_comany" class="text-left">
+                                <span>Company</span>
+                            </th>
+                            <th name="th_date" class="text-left">
+                                <span>Date</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="documents" t-as="line">
+                        <tr>
+                            <td>
+                                <span t-esc="line['name']"/>
+                            </td>
+                            <td>
+                                <span t-esc="line['description']"/>
+                            </td>
+                            <td>
+                                <span t-esc="line['company_id'][1]"/>
+                            </td>
+                            <td>
+                                <span t-esc="line['date']"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <record id="unique_id_here" model="ir.actions.report">
+        <field name="name">documents</field>
+        <field name="model">document.management</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">documents_base.all_documents_template</field>
+        <field name="report_file">documents_base.report</field>
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_document_report_wizard_form" model="ir.ui.view">
+            <field name="name">document.report.wizard.form</field>
+            <field name="model">document.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <footer>
+                        <button string="Print Report" type="object" class="oe_highlight" name="print_my_report"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_document_report_wizard" model="ir.actions.act_window">
+            <field name="name">Document Report Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">document.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_document_report_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+         id="menu_document_report_wizard"
+         name="Report"
+         parent="documents_parent_menu_id"
+         action="action_document_report_wizard"/>
+    </data>
+</odoo>
