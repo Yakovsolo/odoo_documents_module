@@ -1,3 +1,4 @@
+![Module Icon](addons/documents_base/static/description/icon.png)
 # Odoo Module: Documents Information
 
 ## Overview
