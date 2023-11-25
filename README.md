@@ -1,4 +1,5 @@
-![Module Icon](addons/documents_base/static/description/icon.png)
+<img src="addons/documents_base/static/description/icon.png" alt="Module Icon" width="150" align="left">
+
 # Odoo Module: Documents Information
 
 ## Overview
